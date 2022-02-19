@@ -12,6 +12,8 @@ public class scr_CharControl : MonoBehaviour
 
     private Vector3 newCameraRotation;
     private Vector3 newCharacterRotation;
+    private Vector3 currMovementInput;
+    private Vector3 currCameraRotation;
 
     [Header("References")]
     public Transform cameraHolder;
@@ -39,7 +41,7 @@ public class scr_CharControl : MonoBehaviour
     private void Update()
     {
         CalculateView();
-        CalculateMovement();    
+        CalculateMovement();
     }
 
     private void CalculateView()
@@ -50,6 +52,7 @@ public class scr_CharControl : MonoBehaviour
 
         newCameraRotation.x += playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_View.y: -input_View.y) * Time.deltaTime;
         newCameraRotation.x = Mathf.Clamp(newCameraRotation.x, viewClampMin, viewClampMax);             //limits
+        currCameraRotation = newCameraRotation;
 
         cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
     }
@@ -61,8 +64,19 @@ public class scr_CharControl : MonoBehaviour
 
         var newMovementSpeed = new Vector3(horizontalSpeed, 0, verticalSpeed);
         newMovementSpeed = transform.TransformDirection(newMovementSpeed);
+        currMovementInput = newMovementSpeed;
 
         characterController.Move(newMovementSpeed);
 
+    }
+
+    public Vector3 GetMovementInput()
+    {
+        return currMovementInput;
+    }
+
+    public Vector3 GetCameraRotation()
+    {
+        return currCameraRotation;
     }
 }
