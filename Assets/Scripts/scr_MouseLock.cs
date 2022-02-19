@@ -35,4 +35,5 @@ public class scr_MouseLock : MonoBehaviour
             pauseToggle = !pauseToggle;
         }
     }
+
 }

@@ -44,9 +44,10 @@ public class scr_CharControl : MonoBehaviour
         CalculateMovement();
     }
 
-    private void CalculateView()
+    //Calculates Camera rotation
+    private void CalculateView() 
     {
-
+        
         newCharacterRotation.y += playerSettings.ViewXSensitivity * (playerSettings.ViewXInverted ? -input_View.x : input_View.x) * Time.deltaTime;
         transform.rotation = Quaternion.Euler(newCharacterRotation);
 
@@ -57,6 +58,7 @@ public class scr_CharControl : MonoBehaviour
         cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
     }
 
+    //Calculates Player movement
     private void CalculateMovement()
     {
         var verticalSpeed = playerSettings.WalkingForwardSpeed * input_Movement.y * Time.deltaTime;
@@ -70,6 +72,7 @@ public class scr_CharControl : MonoBehaviour
 
     }
 
+    //Getter Methods
     public Vector3 GetMovementInput()
     {
         return currMovementInput;
