@@ -11,12 +11,17 @@ public class FPSMoveNetwork : NetworkBehaviour
 
     public NetworkVariable<Vector3> rotationHeadChange = new NetworkVariable<Vector3>();
     public scr_CharControl controls;
+    public Camera playerCamera;
 
-    
-    void Awake() {
+    public override void OnNetworkSpawn()
+    {
         controls = GetComponent<scr_CharControl>();
+        if(!IsOwner && playerCamera) {
+            Destroy(playerCamera);
+        }
     }
-
+    
+    
     // Random position displacement
     // From: https://github.com/dilmerv/UnityMultiplayerPlayground/blob/master/Assets/Scripts/PlayerControl.cs
     [SerializeField]

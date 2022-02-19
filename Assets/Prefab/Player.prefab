@@ -176,7 +176,11 @@ MonoBehaviour:
     m_InternalValue: {x: 0, y: 0, z: 0}
   rotationChange:
     m_InternalValue: {x: 0, y: 0, z: 0}
+  rotationHeadChange:
+    m_InternalValue: {x: 0, y: 0, z: 0}
   controls: {fileID: 6651685920459014209}
+  playerCamera: {fileID: 6651685920687122642}
+  defaultInitialPositionOnPlane: {x: -4, y: 4}
 --- !u!1 &6651685920687122640
 GameObject:
   m_ObjectHideFlags: 0
