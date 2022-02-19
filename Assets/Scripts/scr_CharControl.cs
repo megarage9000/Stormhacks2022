@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static scr_Models;
+using Unity.Netcode;
+using Unity.Netcode.Samples;
 
+[RequireComponent(typeof(ClientNetworkTransform))]
+[RequireComponent(typeof(NetworkObject))]
 public class scr_CharControl : MonoBehaviour
 {
     private CharacterController characterController;
@@ -49,40 +53,35 @@ public class scr_CharControl : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.KeypadEnter)) {
             canMove = !canMove;
         }
+        CalculateCharacterMovements();
+
     }
 
     //Calculates Camera rotation
     public void CalculateView() 
     {
-        if(canMove){
-            newCameraRotation.x += playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_View.y: -input_View.y) * Time.deltaTime;
-            newCameraRotation.x = Mathf.Clamp(newCameraRotation.x, viewClampMin, viewClampMax);             //limits
-            currCameraRotation = newCameraRotation;
-            // cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
-        }
-
+        newCameraRotation.x += playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_View.y: -input_View.y) * Time.deltaTime;
+        newCameraRotation.x = Mathf.Clamp(newCameraRotation.x, viewClampMin, viewClampMax);             //limits
+        currCameraRotation = newCameraRotation;
+        cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
     }
 
     public void CalculateBodyRotation() {
-        if(canMove){
-            newCharacterRotation.y += playerSettings.ViewXSensitivity * (playerSettings.ViewXInverted ? -input_View.x : input_View.x) * Time.deltaTime;
-            currBodyRotation = newCharacterRotation;
-            // transform.rotation = Quaternion.Euler(newCharacterRotation);
-        }
+        newCharacterRotation.y += playerSettings.ViewXSensitivity * (playerSettings.ViewXInverted ? -input_View.x : input_View.x) * Time.deltaTime;
+        currBodyRotation = newCharacterRotation;
+        transform.rotation = Quaternion.Euler(newCharacterRotation);  
     }
 
     //Calculates Player movement
     public void CalculateMovement()
     {
-        if(canMove){
-            var verticalSpeed = playerSettings.WalkingForwardSpeed * input_Movement.y * Time.deltaTime;
-            var horizontalSpeed = playerSettings.WalkingStrafeSpeed * input_Movement.x * Time.deltaTime;
+        var verticalSpeed = playerSettings.WalkingForwardSpeed * input_Movement.y * Time.deltaTime;
+        var horizontalSpeed = playerSettings.WalkingStrafeSpeed * input_Movement.x * Time.deltaTime;
 
-            var newMovementSpeed = new Vector3(horizontalSpeed, 0, verticalSpeed);
-            newMovementSpeed = transform.TransformDirection(newMovementSpeed);
-            currMovementInput = newMovementSpeed;
-            // characterController.Move(newMovementSpeed);
-        }
+        var newMovementSpeed = new Vector3(horizontalSpeed, 0, verticalSpeed);
+        newMovementSpeed = transform.TransformDirection(newMovementSpeed);
+        currMovementInput = newMovementSpeed;
+        characterController.Move(newMovementSpeed);
     }
 
     public void CalculateCharacterMovements() {
@@ -91,34 +90,5 @@ public class scr_CharControl : MonoBehaviour
             CalculateBodyRotation();
             CalculateView();
         }
-    }
-
-    //Getter Methods
-    public Vector3 GetCalculatedPosition()
-    {
-        return transform.position + currMovementInput;
-    }
-
-    public Vector3 GetCameraRotation()
-    {
-        return currCameraRotation;
-    }
-
-    public Vector3 GetBodyRotation() {
-        return currBodyRotation;
-    }
-
-    //Setter Methods
-    public void MoveCharacter(Vector3 newPosition) {
-        Vector3 movement = newPosition - transform.position;
-        characterController.Move(movement);
-    }
-
-    public void RotateCharacterHead(Vector3 rotation){
-        cameraHolder.localRotation = Quaternion.Euler(rotation);
-    }
-
-    public void RotateCharacter(Vector3 rotation){
-        transform.localRotation = Quaternion.Euler(rotation);
     }
 }
