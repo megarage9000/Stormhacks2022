@@ -8,7 +8,7 @@ public static class scr_Models
     #region - Player -
 
     [Serializable]
-    public class PlayerSettignsModel
+    public class PlayerSettingsModel
      {
         [Header("View Settings")]
         public float ViewXSensitivity;
@@ -16,6 +16,11 @@ public static class scr_Models
 
         public bool ViewXInverted;
         public bool ViewYInverted;
+
+        [Header("Movement")]
+        public float WalkingForwardSpeed;
+        public float WalkingStrafeSpeed;
+        public float WalkingBackwardSpeed;
     }
 
     #endregion

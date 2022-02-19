@@ -5,18 +5,21 @@ using static scr_Models;
 
 public class scr_CharControl : MonoBehaviour
 {
-
+    private CharacterController characterController;
     private DefaultInput defaultInput;
     public Vector2 input_Movement;
     public Vector2 input_View;
 
     private Vector3 newCameraRotation;
+    private Vector3 newCharacterRotation;
 
     [Header("References")]
     public Transform cameraHolder;
 
     [Header("Settings")]
-    public PlayerSettignsModel playerSettings;
+    public PlayerSettingsModel playerSettings;
+    public float viewClampMin = -70;
+    public float viewClampMax = 80;
 
     private void Awake()
     {
@@ -28,6 +31,9 @@ public class scr_CharControl : MonoBehaviour
         defaultInput.Enable();
 
         newCameraRotation = cameraHolder.localRotation.eulerAngles;
+        newCharacterRotation = transform.localRotation.eulerAngles;
+
+        characterController = GetComponent<CharacterController>();
     }
 
     private void Update()
@@ -39,15 +45,24 @@ public class scr_CharControl : MonoBehaviour
     private void CalculateView()
     {
 
-        newCameraRotation.x += playerSettings.ViewYSensitivity * input_View.y * Time.deltaTime;
+        newCharacterRotation.y += playerSettings.ViewXSensitivity * (playerSettings.ViewXInverted ? -input_View.x : input_View.x) * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(newCharacterRotation);
 
-
+        newCameraRotation.x += playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_View.y: -input_View.y) * Time.deltaTime;
+        newCameraRotation.x = Mathf.Clamp(newCameraRotation.x, viewClampMin, viewClampMax);             //limits
 
         cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
     }
 
     private void CalculateMovement()
     {
+        var verticalSpeed = playerSettings.WalkingForwardSpeed * input_Movement.y * Time.deltaTime;
+        var horizontalSpeed = playerSettings.WalkingStrafeSpeed * input_Movement.x * Time.deltaTime;
+
+        var newMovementSpeed = new Vector3(horizontalSpeed, 0, verticalSpeed);
+        newMovementSpeed = transform.TransformDirection(newMovementSpeed);
+
+        characterController.Move(newMovementSpeed);
 
     }
 }
