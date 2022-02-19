@@ -48,8 +48,6 @@ public class scr_CharControl : MonoBehaviour
 
     private void Update()
     {
-        // CalculateView();
-        // CalculateMovement();
         if(Input.GetKeyDown(KeyCode.KeypadEnter)) {
             canMove = !canMove;
         }
