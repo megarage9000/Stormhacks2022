@@ -135,10 +135,10 @@ MonoBehaviour:
   input_View: {x: 0, y: 0}
   cameraHolder: {fileID: 6651685920968422085}
   playerSettings:
-    ViewXSensitivity: 10
+    ViewXSensitivity: 40
     ViewYSensitivity: 10
     ViewXInverted: 0
-    ViewYInverted: 1
+    ViewYInverted: 0
     WalkingForwardSpeed: 10
     WalkingStrafeSpeed: 3
     WalkingBackwardSpeed: 2

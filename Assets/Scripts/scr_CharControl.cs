@@ -55,7 +55,7 @@ public class scr_CharControl : MonoBehaviour
     public void CalculateView() 
     {
         if(canMove){
-            newCameraRotation.x -= playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_View.y: -input_View.y) * Time.deltaTime;
+            newCameraRotation.x += playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_View.y: -input_View.y) * Time.deltaTime;
             newCameraRotation.x = Mathf.Clamp(newCameraRotation.x, viewClampMin, viewClampMax);             //limits
             currCameraRotation = newCameraRotation;
             // cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
@@ -110,6 +110,6 @@ public class scr_CharControl : MonoBehaviour
     }
 
     public void RotateCharacter(Vector3 rotation){
-        transform.rotation = Quaternion.Euler(rotation);
+        transform.localRotation = Quaternion.Euler(rotation);
     }
 }

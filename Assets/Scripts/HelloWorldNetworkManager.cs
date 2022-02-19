@@ -17,8 +17,7 @@ public class HelloWorldNetworkManager : MonoBehaviour
         }
         else {
             StatusLabels();
-            DestroyCamera();
-            //SubmitNewPosition();    
+            DestroyCamera(); 
         }
 
         GUILayout.EndArea();
@@ -59,6 +58,24 @@ public class HelloWorldNetworkManager : MonoBehaviour
         GUILayout.Label("Transport: " +
             NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name);
         GUILayout.Label("Mode: " + mode);
+    }
+
+    static void ExecuteServerOnly() {
+        if(NetworkManager.Singleton.IsServer && !NetworkManager.Singleton.IsClient) {
+            foreach(ulong uid in NetworkManager.Singleton.ConnectedClientsIds) {
+                NetworkManager
+                    .Singleton
+                    .SpawnManager
+                    .GetPlayerNetworkObject(uid)
+                    .GetComponent<FPSMoveNetwork>().Move();
+            }
+        }
+    }
+
+    void Update(){
+        if(NetworkManager.Singleton.IsServer){
+            ExecuteServerOnly();
+        }
     }
 
     // static void SubmitNewPosition() {

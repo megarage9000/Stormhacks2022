@@ -8,8 +8,8 @@ public class FPSMoveNetwork : NetworkBehaviour
 
     public NetworkVariable<Vector3> movementChange = new NetworkVariable<Vector3>();
     public NetworkVariable<Vector3> rotationChange = new NetworkVariable<Vector3>();
-
     public NetworkVariable<Vector3> rotationHeadChange = new NetworkVariable<Vector3>();
+    public NetworkVariable<Vector3> playerPosition = new NetworkVariable<Vector3>();
     public scr_CharControl controls;
     public Camera playerCamera;
 
@@ -21,22 +21,29 @@ public class FPSMoveNetwork : NetworkBehaviour
         }
     }
     
-    
     // Random position displacement
     // From: https://github.com/dilmerv/UnityMultiplayerPlayground/blob/master/Assets/Scripts/PlayerControl.cs
     [SerializeField]
-    private Vector2 defaultInitialPositionOnPlane = new Vector2(-4, 4);
+    private Vector2 randomPosition = new Vector2(-4, 4);
     void Start() {
-        transform.position = new Vector3(Random.Range(defaultInitialPositionOnPlane.x, defaultInitialPositionOnPlane.y), 5,
-                   Random.Range(defaultInitialPositionOnPlane.x, defaultInitialPositionOnPlane.y));
-
-        if(IsServer){
+        // if(IsClient){
+        //     RandomizePositionServerRpc(); 
+        // }
+        // else {
+        //     GetRandomPosition();
+        // }
+        // transform.position = playerPosition.Value;
+        if(IsServer && IsOwner){
             gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
     }
 
     void Update()
     {   
+        Move();
+    }
+
+    public void Move() {
         if(IsClient && IsOwner) {
             UpdateClient();
         } 
@@ -63,5 +70,17 @@ public class FPSMoveNetwork : NetworkBehaviour
         movementChange.Value = movement;
         rotationChange.Value = rotation;
         rotationHeadChange.Value = rotationHead;
+    }
+
+    public Vector3 GetRandomPosition() {
+        return new Vector3(
+            Random.Range(randomPosition.x, randomPosition.y),
+            0,
+            Random.Range(randomPosition.x, randomPosition.y)
+        );
+    }
+    [ServerRpc]
+    public void RandomizePositionServerRpc() {
+        playerPosition.Value = GetRandomPosition();
     }
 }
