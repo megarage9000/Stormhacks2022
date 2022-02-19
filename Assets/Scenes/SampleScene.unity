@@ -540,7 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 963194228}
   body: {fileID: 1705847708}
-  sensitivity: 1000
+  sensitivity: 500
 --- !u!114 &1705847707
 MonoBehaviour:
   m_ObjectHideFlags: 0

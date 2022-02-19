@@ -7,7 +7,8 @@ public class FPSLook : MonoBehaviour
 
     public Transform head;
     public Transform body;
-
+    
+    float rotationY = 0f;
     public float sensitivity = 1000f;
     // Start is called before the first frame update
     void Start()
@@ -30,10 +31,11 @@ public class FPSLook : MonoBehaviour
         Vector3 y_axis_look = head.transform.right;
 
         x_look = x_look * sensitivity * Time.deltaTime;
-        y_look = -y_look * sensitivity * Time.deltaTime;
-        y_look = Mathf.Clamp(y_look, -90f, 90f);
-        
         body.transform.Rotate(Vector3.up * x_look);
-        head.transform.Rotate(y_look, 0f, 0f);
+        
+        Vector3 headRot = head.transform.localRotation.eulerAngles;
+        rotationY  -= y_look * sensitivity * Time.deltaTime;
+        rotationY = Mathf.Clamp(rotationY, -90f, 90f);
+        head.transform.localRotation = Quaternion.Euler(rotationY, 0f, 0f);
      }
 }
