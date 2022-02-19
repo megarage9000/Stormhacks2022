@@ -191,8 +191,13 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 453701750}
-    PlayerPrefab: {fileID: 3962637494613137631, guid: 35d335b1ba8789142bcc91d206fcffcc, type: 3}
-    NetworkPrefabs: []
+    PlayerPrefab: {fileID: 6651685920459014214, guid: dc9cecaf6afd76b48b95e2267509fb0f, type: 3}
+    NetworkPrefabs:
+    - Override: 0
+      Prefab: {fileID: 6651685920459014214, guid: dc9cecaf6afd76b48b95e2267509fb0f, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -344,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505bff9398bf9ee40a4686ee8b6cad2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initCamera: {fileID: 1580306759}
 --- !u!1 &1522379258
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,8 +522,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580306757}
-  m_LocalRotation: {x: -0.1200147, y: 0.0089007355, z: -0.001074188, w: -0.99273163}
-  m_LocalPosition: {x: -11.34739, y: 124.759674, z: -381.25488}
+  m_LocalRotation: {x: -0.07332509, y: 0.91683656, z: -0.19859126, w: -0.3385198}
+  m_LocalPosition: {x: 48.665424, y: 32.243504, z: 47.049946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
