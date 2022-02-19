@@ -85,10 +85,18 @@ public class scr_CharControl : MonoBehaviour
         }
     }
 
+    public void CalculateCharacterMovements() {
+        if(canMove) {
+            CalculateMovement();
+            CalculateBodyRotation();
+            CalculateView();
+        }
+    }
+
     //Getter Methods
-    public Vector3 GetMovementInput()
+    public Vector3 GetCalculatedPosition()
     {
-        return currMovementInput;
+        return transform.position + currMovementInput;
     }
 
     public Vector3 GetCameraRotation()
@@ -101,8 +109,9 @@ public class scr_CharControl : MonoBehaviour
     }
 
     //Setter Methods
-    public void MoveCharacter(Vector3 movement) {
-        characterController.Move(movement);
+    public void MoveCharacter(Vector3 newPosition) {
+        Vector3 movement = (newPosition / Time.deltaTime) - transform.position;
+        characterController.Move(movement * Time.deltaTime);
     }
 
     public void RotateCharacterHead(Vector3 rotation){

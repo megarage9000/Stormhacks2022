@@ -5,8 +5,6 @@ using Unity.Netcode;
 
 public class FPSMoveNetwork : NetworkBehaviour
 {
-
-    public NetworkVariable<Vector3> movementChange = new NetworkVariable<Vector3>();
     public NetworkVariable<Vector3> rotationChange = new NetworkVariable<Vector3>();
     public NetworkVariable<Vector3> rotationHeadChange = new NetworkVariable<Vector3>();
     public NetworkVariable<Vector3> playerPosition = new NetworkVariable<Vector3>();
@@ -26,13 +24,6 @@ public class FPSMoveNetwork : NetworkBehaviour
     [SerializeField]
     private Vector2 randomPosition = new Vector2(-4, 4);
     void Start() {
-        // if(IsClient){
-        //     RandomizePositionServerRpc(); 
-        // }
-        // else {
-        //     GetRandomPosition();
-        // }
-        // transform.position = playerPosition.Value;
         if(IsServer && IsOwner){
             gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
@@ -52,22 +43,20 @@ public class FPSMoveNetwork : NetworkBehaviour
 
     // Get value changes
     private void UpdateServer() {
-        controls.MoveCharacter(movementChange.Value);
+        controls.MoveCharacter(playerPosition.Value);
         controls.RotateCharacter(rotationChange.Value);
         controls.RotateCharacterHead(rotationHeadChange.Value);
     }
 
     // Send via RPC
     private void UpdateClient() {
-        controls.CalculateMovement();
-        controls.CalculateBodyRotation();
-        controls.CalculateView();
-        UpdateClientMovementServerRpc(controls.GetBodyRotation(), controls.GetCameraRotation(), controls.GetMovementInput());
+        controls.CalculateCharacterMovements();
+        UpdateClientMovementServerRpc(controls.GetBodyRotation(), controls.GetCameraRotation(), controls.GetCalculatedPosition());
     }
 
     [ServerRpc]
-    public void UpdateClientMovementServerRpc(Vector3 rotation, Vector3 rotationHead, Vector3 movement) {
-        movementChange.Value = movement;
+    public void UpdateClientMovementServerRpc(Vector3 rotation, Vector3 rotationHead, Vector3 position) {
+        playerPosition.Value = position;
         rotationChange.Value = rotation;
         rotationHeadChange.Value = rotationHead;
     }

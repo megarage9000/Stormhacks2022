@@ -139,9 +139,9 @@ MonoBehaviour:
     ViewYSensitivity: 10
     ViewXInverted: 0
     ViewYInverted: 0
-    WalkingForwardSpeed: 10
-    WalkingStrafeSpeed: 3
-    WalkingBackwardSpeed: 2
+    WalkingForwardSpeed: 15
+    WalkingStrafeSpeed: 7
+    WalkingBackwardSpeed: 10
   viewClampMin: -70
   viewClampMax: 80
 --- !u!114 &8325790029881486366
@@ -172,15 +172,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cf71f976bc43649b7e46016a33ffc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementChange:
-    m_InternalValue: {x: 0, y: 0, z: 0}
   rotationChange:
     m_InternalValue: {x: 0, y: 0, z: 0}
   rotationHeadChange:
     m_InternalValue: {x: 0, y: 0, z: 0}
+  playerPosition:
+    m_InternalValue: {x: 0, y: 0, z: 0}
   controls: {fileID: 6651685920459014209}
   playerCamera: {fileID: 6651685920687122642}
-  defaultInitialPositionOnPlane: {x: -4, y: 4}
+  randomPosition: {x: -4, y: 4}
 --- !u!1 &6651685920687122640
 GameObject:
   m_ObjectHideFlags: 0
