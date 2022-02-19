@@ -17,7 +17,7 @@ public class HelloWorldNetworkManager : MonoBehaviour
         }
         else {
             StatusLabels();
-            // DestroyCamera();
+            DestroyCamera();
             //SubmitNewPosition();    
         }
 
