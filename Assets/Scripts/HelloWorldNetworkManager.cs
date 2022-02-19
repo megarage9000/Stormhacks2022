@@ -6,7 +6,6 @@ using Unity.Netcode;
 public class HelloWorldNetworkManager : MonoBehaviour
 {
     void OnGUI() {
-        Debug.Log("creating GUI");
         GUILayout.BeginArea(new Rect(100, 100, 300, 300));
         if(!NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsServer) {
             StartButtons();
@@ -22,9 +21,31 @@ public class HelloWorldNetworkManager : MonoBehaviour
 
     
     static void StartButtons() {
-        if(GUILayout.Button("Host")) NetworkManager.Singleton.StartHost();
-        if(GUILayout.Button("Client")) NetworkManager.Singleton.StartClient();
-        if(GUILayout.Button("Server")) NetworkManager.Singleton.StartServer();
+        if(GUILayout.Button("Host")) {
+            if(NetworkManager.Singleton.StartHost()){
+                Debug.Log("Starting the Host...");
+            }
+            else {
+                Debug.Log("Unable to start the Host");
+            }
+        } 
+            
+        if(GUILayout.Button("Client")){
+            if(NetworkManager.Singleton.StartClient()){
+                Debug.Log("Starting the Client...");
+            }
+            else {
+                Debug.Log("Unable to start the Client");
+            }
+        }
+        if(GUILayout.Button("Server")){
+            if(NetworkManager.Singleton.StartServer()){
+                Debug.Log("Starting the Server...");
+            }
+            else {
+                Debug.Log("Unable to start the Server");
+            }
+        }
     }
 
     static void StatusLabels() {
