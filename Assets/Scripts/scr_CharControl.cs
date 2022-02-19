@@ -110,8 +110,8 @@ public class scr_CharControl : MonoBehaviour
 
     //Setter Methods
     public void MoveCharacter(Vector3 newPosition) {
-        Vector3 movement = (newPosition / Time.deltaTime) - transform.position;
-        characterController.Move(movement * Time.deltaTime);
+        Vector3 movement = newPosition - transform.position;
+        characterController.Move(movement);
     }
 
     public void RotateCharacterHead(Vector3 rotation){
