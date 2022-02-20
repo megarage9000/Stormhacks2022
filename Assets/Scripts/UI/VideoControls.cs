@@ -15,30 +15,14 @@ public class VideoControls : MonoBehaviour
 
     public InputField YoutubeLink;
 
-    public void Setup()
+    public Button GetPrepare()
     {
-        Play.onClick.AddListener(() =>
-        {
-
-        });
-
-        Pause.onClick.AddListener(() =>
-        {
-
-        });
-
-        Reset.onClick.AddListener(() =>
-        {
-
-        });
-
-        Prepare.onClick.AddListener(() =>
-        {
-            string youtubeLink = YoutubeLink.text;
-            if (!string.IsNullOrEmpty(youtubeLink))
-            {
-
-            }
-        });
+        return Prepare;
     }
+
+    public InputField GetYoutubeLinkInput()
+    {
+        return YoutubeLink;
+    }
+
 }
