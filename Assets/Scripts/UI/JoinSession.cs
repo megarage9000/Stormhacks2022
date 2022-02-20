@@ -13,23 +13,28 @@ public class JoinSession : MonoBehaviour
     public Camera InitCamera;
     public Canvas canvas;
 
+    private bool isHost = true;
+
+
     void Awake()
     {
         JoinHostButton.onClick.AddListener(async () =>
         {
             string code = JoinCodeInput.text;
-            bool res = await NetworkHelpers.JoinHost(code);
+            bool res = await NetworkHelpers.JoinRelay(code);
             if (res)
             {
+                isHost = false;
                 LoadPlayScene();
             }
         });
 
         StartHostButton.onClick.AddListener(async () =>
         {
-            bool res = await NetworkHelpers.StartHost();
+            bool res = await NetworkHelpers.StartRelay();
             if (res)
             {
+                isHost = true;
                 LoadPlayScene();
             }
         });
@@ -41,8 +46,8 @@ public class JoinSession : MonoBehaviour
         JoinHostButton.gameObject.SetActive(false);
         StartHostButton.gameObject.SetActive(false);
         JoinCodeInput.gameObject.SetActive(false);
-        Destroy(InitCamera);
-        Destroy(GameObject.FindGameObjectWithTag("SessionJoinUI"));
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        SceneComm sceneComm = new SceneComm();
+        sceneComm.setToHost(isHost);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 }
