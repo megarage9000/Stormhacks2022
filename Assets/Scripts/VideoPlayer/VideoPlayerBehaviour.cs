@@ -13,11 +13,11 @@ namespace YoutubePlayer
         YoutubePlayer youtubePlayer;
         public GameObject videoButtons;
 
+        string serverYoutubeLink = "";
         NetworkVariable<NetworkString> youtubeLink = new NetworkVariable<NetworkString>("");
-
-        [ClientRpc]
-        public void SetYoutubeLinkClientRpc(string link)
+        public void SetYoutubeLink(string link)
         {
+            serverYoutubeLink = link;
             youtubeLink.Value = link;
         }
 
@@ -57,7 +57,7 @@ namespace YoutubePlayer
             print("loading video..");
             try
             {
-                await youtubePlayer.PrepareVideoAsync(youtubeLink.Value);
+                await youtubePlayer.PrepareVideoAsync(serverYoutubeLink);
                 print("loading complete!");
             }
             catch
@@ -66,18 +66,39 @@ namespace YoutubePlayer
             }
         }
 
-
         public void Play()
         {
             Debug.Log("Video: Play");
             videoPlayer.Play();
         }
 
+        public void Pause()
+        {
+            Debug.Log("Video: Pause");
+            videoPlayer.Pause();
+        }
+
+        public void ResetPlayer()
+        {
+            Debug.Log("Video: Reset");
+            videoPlayer.Stop();
+            videoPlayer.Play();
+        }
 
         [ClientRpc]
         public async void PrepareClientRpc()
         {
-            Prepare();
+            Debug.Log("Video: Prepare");
+            print("loading video..");
+            try
+            {
+                await youtubePlayer.PrepareVideoAsync(youtubeLink.Value);
+                print("loading complete!");
+            }
+            catch
+            {
+                print("error video not loading");
+            }
         }
 
         [ClientRpc]
@@ -89,16 +110,13 @@ namespace YoutubePlayer
         [ClientRpc]
         public void PauseVideoClientRpc()
         {
-            Debug.Log("Video: Pause");
-            videoPlayer.Pause();
+            Pause();
         }
 
         [ClientRpc]
         public void ResetVideoClientRpc()
         {
-            Debug.Log("Video: Reset");
-            videoPlayer.Stop();
-            videoPlayer.Play();
+            ResetPlayer();
         }
 
         public override void OnDestroy()

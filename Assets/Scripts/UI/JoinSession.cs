@@ -10,7 +10,6 @@ public class JoinSession : MonoBehaviour
     public InputField JoinCodeInput;
     public Button JoinHostButton;
     public Button StartHostButton;
-    public NetworkHelpers manager;
     public Camera InitCamera;
     public Canvas canvas;
 
@@ -19,7 +18,7 @@ public class JoinSession : MonoBehaviour
         JoinHostButton.onClick.AddListener(async () =>
         {
             string code = JoinCodeInput.text;
-            bool res = await manager.JoinHost(code);
+            bool res = await NetworkHelpers.JoinHost(code);
             if (res)
             {
                 LoadPlayScene();
@@ -28,7 +27,7 @@ public class JoinSession : MonoBehaviour
 
         StartHostButton.onClick.AddListener(async () =>
         {
-            bool res = await manager.StartHost();
+            bool res = await NetworkHelpers.StartHost();
             if (res)
             {
                 LoadPlayScene();
@@ -43,7 +42,7 @@ public class JoinSession : MonoBehaviour
         StartHostButton.gameObject.SetActive(false);
         JoinCodeInput.gameObject.SetActive(false);
         Destroy(InitCamera);
-        Destroy(canvas);
-        SceneManager.LoadScene(0, LoadSceneMode.Additive);
+        Destroy(GameObject.FindGameObjectWithTag("SessionJoinUI"));
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 }

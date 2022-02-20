@@ -4,10 +4,10 @@ using UnityEngine;
 using Unity.Netcode;
 using System.Threading.Tasks;
 
-public class NetworkHelpers : Singleton<NetworkHelpers>
+public static class NetworkHelpers
 {
-    private string JoinCode;
-    public async Task<bool> JoinHost(string code)
+    private static string JoinCode;
+    public static async Task<bool> JoinHost(string code)
     {
         if (RelayManager.Instance.IsRelayEnabled && !string.IsNullOrEmpty(code))
         {
@@ -26,7 +26,7 @@ public class NetworkHelpers : Singleton<NetworkHelpers>
         }
     }
 
-    public async Task<bool> StartHost()
+    public static async Task<bool> StartHost()
     {
         if (RelayManager.Instance.IsRelayEnabled)
         {
@@ -45,12 +45,16 @@ public class NetworkHelpers : Singleton<NetworkHelpers>
         }
     }
 
-    public string GetServerInfo()
+    public static string GetServerInfo()
     {
-        var mode = NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client";
-        var transport = NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name;
-        return "Transport: " + transport +
-            "\nMode: " + mode  +
-            "\nJoin Code: " + JoinCode;
+        if(NetworkManager.Singleton != null)
+        {
+            var mode = NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client";
+            var transport = NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name;
+            return "Transport: " + transport +
+                "\nMode: " + mode  +
+                "\nJoin Code: " + JoinCode;
+        }
+        return "";
     }
 }
