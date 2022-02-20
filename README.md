@@ -9,8 +9,8 @@ environments in a remote environment.
 
 # Images
 
-![loading image](./Images/startup.png)
+![](./Images/startup.png)
 
-![host image](./Images/host-view.png)
+![](./Images/host-view.png)
 
-![multi client](./Images/multi-client.png)
+![](./Images/multi-client.png)
