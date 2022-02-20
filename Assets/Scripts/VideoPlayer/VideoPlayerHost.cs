@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
+using YoutubePlayer;
+using System.Threading.Tasks;
+using UnityEngine.Video;
 
-public class VideoPlayerHost : MonoBehaviour
+namespace YoutubePlayer
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public class VideoPlayerHost : NetworkBehaviour
     {
-        
+
+
+
     }
 }

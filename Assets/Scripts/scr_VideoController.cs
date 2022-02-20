@@ -37,7 +37,7 @@ namespace YoutubePlayer
             try
             {
                 await youtubePlayer.PrepareVideoAsync();
-                print("video loading");
+                print("loading complete!");
             }
             catch
             {

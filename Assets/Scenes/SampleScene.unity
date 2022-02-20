@@ -478,6 +478,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &910953650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7618267396076186730, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+  m_PrefabInstance: {fileID: 7618267396381581528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1197342872
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +572,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469693090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7618267395535805562, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+  m_PrefabInstance: {fileID: 7618267396381581528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1522379258
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +679,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1587521876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7618267395418491276, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+  m_PrefabInstance: {fileID: 7618267396381581528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1921208709
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +832,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
+--- !u!114 &2082332553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+  m_PrefabInstance: {fileID: 7618267396381581528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4541457967791901919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1066,5 +1110,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7618267396566452772, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: Play
+      value: 
+      objectReference: {fileID: 2082332553}
+    - target: {fileID: 7618267396566452772, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: Pause
+      value: 
+      objectReference: {fileID: 1469693090}
+    - target: {fileID: 7618267396566452772, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: Reset
+      value: 
+      objectReference: {fileID: 910953650}
+    - target: {fileID: 7618267396566452772, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: Prepare
+      value: 
+      objectReference: {fileID: 1587521876}
+    - target: {fileID: 7618267396566452772, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: YoutubeLink
+      value: 
+      objectReference: {fileID: 7618267396381581529}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+--- !u!114 &7618267396381581529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3237333218121849447, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+  m_PrefabInstance: {fileID: 7618267396381581528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
