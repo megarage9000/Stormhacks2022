@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.ibicha.youtube-player": {
+      "version": "file:com.ibicha.youtube-player",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
+      }
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.7",
       "depth": 0,
