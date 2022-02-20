@@ -13,8 +13,9 @@ namespace YoutubePlayer
         YoutubePlayer youtubePlayer;
         public GameObject videoButtons;
 
-        string serverYoutubeLink = " ";
-        NetworkVariable<NetworkString> youtubeLink = new NetworkVariable<NetworkString>(" ");
+        // Default video
+        string serverYoutubeLink = "https://www.youtube.com/watch?v=NUthoQuFdvI";
+        NetworkVariable<NetworkString> youtubeLink = new NetworkVariable<NetworkString>("https://www.youtube.com/watch?v=NUthoQuFdvI");
         public void SetYoutubeLink(string link)
         {
             if (!string.IsNullOrEmpty(link) && IsHost)
@@ -31,6 +32,7 @@ namespace YoutubePlayer
             {
                 Destroy(videoButtons);
             }
+
         }
 
         public async void Prepare()

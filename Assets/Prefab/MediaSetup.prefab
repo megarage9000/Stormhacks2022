@@ -78,7 +78,6 @@ GameObject:
   - component: {fileID: 2622025827318746313}
   - component: {fileID: 2622025827318746314}
   - component: {fileID: 2622025827318746315}
-  - component: {fileID: 2622025827318746319}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -168,18 +167,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2622025827318746319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2622025827318746324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550759bae68024c458e69aaf491730b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2622025828562290014
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1145517045601815165, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: youtubeUrl
-      value: 
+      value: https://www.youtube.com/watch?v=NUthoQuFdvI
       objectReference: {fileID: 0}
     - target: {fileID: 1145517045601815170, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: m_Url
@@ -350,7 +337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1145517045601815170, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1145517045601815170, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: m_EnabledAudioTracks.Array.data[0]
