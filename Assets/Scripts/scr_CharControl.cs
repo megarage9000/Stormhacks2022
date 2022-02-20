@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static scr_Models;
+using Unity.Netcode;
+using Unity.Netcode.Samples;
 
+[RequireComponent(typeof(ClientNetworkTransform))]
+[RequireComponent(typeof(NetworkObject))]
 public class scr_CharControl : MonoBehaviour
 {
     private CharacterController characterController;
@@ -14,6 +18,7 @@ public class scr_CharControl : MonoBehaviour
     private Vector3 newCharacterRotation;
     private Vector3 currMovementInput;
     private Vector3 currCameraRotation;
+    private Vector3 currBodyRotation;
 
     [Header("References")]
     public Transform cameraHolder;
@@ -22,6 +27,9 @@ public class scr_CharControl : MonoBehaviour
     public PlayerSettingsModel playerSettings;
     public float viewClampMin = -70;
     public float viewClampMax = 80;
+
+    // FOR DEBUGGING:
+    private bool canMove = true;
 
     private void Awake()
     {
@@ -40,26 +48,32 @@ public class scr_CharControl : MonoBehaviour
 
     private void Update()
     {
-        CalculateView();
-        CalculateMovement();
+        // CalculateView();
+        // CalculateMovement();
+        if(Input.GetKeyDown(KeyCode.KeypadEnter)) {
+            canMove = !canMove;
+        }
+        CalculateCharacterMovements();
+
     }
 
     //Calculates Camera rotation
-    private void CalculateView() 
+    public void CalculateView() 
     {
-        
-        newCharacterRotation.y += playerSettings.ViewXSensitivity * (playerSettings.ViewXInverted ? -input_View.x : input_View.x) * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(newCharacterRotation);
-
         newCameraRotation.x += playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_View.y: -input_View.y) * Time.deltaTime;
         newCameraRotation.x = Mathf.Clamp(newCameraRotation.x, viewClampMin, viewClampMax);             //limits
         currCameraRotation = newCameraRotation;
-
         cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
     }
 
+    public void CalculateBodyRotation() {
+        newCharacterRotation.y += playerSettings.ViewXSensitivity * (playerSettings.ViewXInverted ? -input_View.x : input_View.x) * Time.deltaTime;
+        currBodyRotation = newCharacterRotation;
+        transform.rotation = Quaternion.Euler(newCharacterRotation);  
+    }
+
     //Calculates Player movement
-    private void CalculateMovement()
+    public void CalculateMovement()
     {
         var verticalSpeed = playerSettings.WalkingForwardSpeed * input_Movement.y * Time.deltaTime;
         var horizontalSpeed = playerSettings.WalkingStrafeSpeed * input_Movement.x * Time.deltaTime;
@@ -67,19 +81,14 @@ public class scr_CharControl : MonoBehaviour
         var newMovementSpeed = new Vector3(horizontalSpeed, 0, verticalSpeed);
         newMovementSpeed = transform.TransformDirection(newMovementSpeed);
         currMovementInput = newMovementSpeed;
-
         characterController.Move(newMovementSpeed);
-
     }
 
-    //Getter Methods
-    public Vector3 GetMovementInput()
-    {
-        return currMovementInput;
-    }
-
-    public Vector3 GetCameraRotation()
-    {
-        return currCameraRotation;
+    public void CalculateCharacterMovements() {
+        if(canMove) {
+            CalculateMovement();
+            CalculateBodyRotation();
+            CalculateView();
+        }
     }
 }
