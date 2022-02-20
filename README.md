@@ -17,7 +17,7 @@ commands for video control:
 ![](./Images/host-view.png)
 
 Multiplayer demonstration:
-![](./Images/multi-client.png)
+![](./Images/multi-client.jpg)
 
 # How to play
 
