@@ -12,11 +12,13 @@ namespace YoutubePlayer
         public VideoPlayer videoPlayer;
         YoutubePlayer youtubePlayer;
         public GameObject videoButtons;
-        private string youtubeLink = "";
 
-        public void SetYoutubeLink(string link)
+        NetworkVariable<NetworkString> youtubeLink = new NetworkVariable<NetworkString>("");
+
+        [ClientRpc]
+        public void SetYoutubeLinkClientRpc(string link)
         {
-            youtubeLink = link;
+            youtubeLink.Value = link;
         }
 
         private void Awake()
@@ -48,13 +50,14 @@ namespace YoutubePlayer
                 }
             }
         }
+
         public async void Prepare()
         {
             Debug.Log("Video: Prepare");
             print("loading video..");
             try
             {
-                await youtubePlayer.PrepareVideoAsync(youtubeLink);
+                await youtubePlayer.PrepareVideoAsync(youtubeLink.Value);
                 print("loading complete!");
             }
             catch
@@ -62,17 +65,36 @@ namespace YoutubePlayer
                 print("error video not loading");
             }
         }
-        public void PlayVideo()
+
+
+        public void Play()
         {
             Debug.Log("Video: Play");
             videoPlayer.Play();
         }
-        public void PauseVideo()
+
+
+        [ClientRpc]
+        public async void PrepareClientRpc()
+        {
+            Prepare();
+        }
+
+        [ClientRpc]
+        public void PlayVideoClientRpc()
+        {
+            Play();
+        }
+
+        [ClientRpc]
+        public void PauseVideoClientRpc()
         {
             Debug.Log("Video: Pause");
             videoPlayer.Pause();
         }
-        public void ResetVideo()
+
+        [ClientRpc]
+        public void ResetVideoClientRpc()
         {
             Debug.Log("Video: Reset");
             videoPlayer.Stop();
