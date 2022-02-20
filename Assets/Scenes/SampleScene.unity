@@ -611,7 +611,18 @@ RectTransform:
   m_AnchoredPosition: {x: -290.97968, y: 172.00002}
   m_SizeDelta: {x: 158.0406, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &2045375140
+--- !u!114 &2082332553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+  m_PrefabInstance: {fileID: 7618267396381581528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2113038543
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -625,10 +636,10 @@ PrefabInstance:
     - target: {fileID: 155662516154811781, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: youtubePlayer
       value: 
-      objectReference: {fileID: 2045375141}
+      objectReference: {fileID: 0}
     - target: {fileID: 1145517045601815170, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: m_Url
-      value: 
+      value: https://rr2---sn-uxa0n-t8ge.googlevideo.com/videoplayback?expire=1645378029&ei=jSUSYvLOMomZsfIPpv6SmAw&ip=2001%3A569%3A7df3%3A6f00%3Acc0%3A6708%3A88cb%3A823&id=o-AGSan4o6Bddl2EMnEfAFvwyKDRX188sTdFCJLMm_ND61&itag=22&source=youtube&requiressl=yes&mh=Q5&mm=31%2C26&mn=sn-uxa0n-t8ge%2Csn-vgqskn76&ms=au%2Conr&mv=m&mvi=2&pcm2cms=yes&pl=44&initcwndbps=1881250&vprv=1&mime=video%2Fmp4&ns=X7Jiza-imfBkIWz4UxDzox0G&cnr=14&ratebypass=yes&dur=42.562&lmt=1628301798387957&mt=1645356043&fvip=2&fexp=24001373%2C24007246&c=WEB&txp=5311224&n=yO05SOu7ITAX62fT2&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIhALt3rAqU6q6mVhwFNMTK0KJjOCfEHQw5-VXcTXKHZFfxAh8Tj9YZDchZd4_AAkL5a8xEb_TMD91kKF2ZKX-0LXeV&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRgIhANthZFXbAGkLCCV9XS47HnY1UuEQUZRASvby7923Irn_AiEA_Pj-w4qNnH40udX_E6tiHGWCocWKT-mqsAr6i0R87A0%3D
       objectReference: {fileID: 0}
     - target: {fileID: 1145517046822856143, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: m_Name
@@ -680,30 +691,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4942948046162935095, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 622886371
+      value: 4008853652
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
---- !u!114 &2045375141 stripped
+--- !u!114 &2113038544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 155662516154811781, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
+  m_PrefabInstance: {fileID: 2113038543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19724e1770b06aa47a286431f05afd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2113038545 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1145517045601815165, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
-  m_PrefabInstance: {fileID: 2045375140}
+  m_PrefabInstance: {fileID: 2113038543}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3768fe280903842fdaa2a016022624f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2082332553 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
-  m_PrefabInstance: {fileID: 7618267396381581528}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7618267396381581528
@@ -713,6 +724,146 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 685922323}
     m_Modifications:
+    - target: {fileID: 3237333218121849447, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237333218121849447, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237333218121849447, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2113038544}
+    - target: {fileID: 3237333218121849447, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237333218121849447, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetYoutubeLink
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237333218121849447, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: YoutubePlayer.VideoPlayerBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237333218121849447, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2113038544}
+    - target: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayVideo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: YoutubePlayer.VideoPlayerBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267394839838545, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395418491276, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395418491276, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395418491276, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2113038544}
+    - target: {fileID: 7618267395418491276, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395418491276, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Prepare
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395418491276, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: YoutubePlayer.VideoPlayerBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395418491276, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395535805562, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395535805562, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395535805562, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2113038544}
+    - target: {fileID: 7618267395535805562, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395535805562, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseVideo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395535805562, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: YoutubePlayer.VideoPlayerBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267395535805562, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267396076186730, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267396076186730, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267396076186730, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2113038544}
+    - target: {fileID: 7618267396076186730, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267396076186730, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetVideo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267396076186730, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: YoutubePlayer.VideoPlayerBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618267396076186730, guid: ae1557349fd98594aade8f5744174b92, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7618267396566452770, guid: ae1557349fd98594aade8f5744174b92, type: 3}
       propertyPath: m_Name
       value: VideoControls
@@ -820,12 +971,13 @@ PrefabInstance:
     - target: {fileID: 7618267396566452772, guid: ae1557349fd98594aade8f5744174b92, type: 3}
       propertyPath: VideoPlayer
       value: 
-      objectReference: {fileID: 2045375141}
+      objectReference: {fileID: 2113038545}
     - target: {fileID: 7618267396566452772, guid: ae1557349fd98594aade8f5744174b92, type: 3}
       propertyPath: YoutubeLink
       value: 
       objectReference: {fileID: 7618267396381581529}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7618267396566452772, guid: ae1557349fd98594aade8f5744174b92, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ae1557349fd98594aade8f5744174b92, type: 3}
 --- !u!114 &7618267396381581529 stripped
 MonoBehaviour:

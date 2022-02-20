@@ -9,13 +9,19 @@ namespace YoutubePlayer
 {
     public class VideoPlayerBehaviour : NetworkBehaviour
     {
-        VideoPlayer videoPlayer;
-        public YoutubePlayer youtubePlayer;
+        public VideoPlayer videoPlayer;
+        YoutubePlayer youtubePlayer;
         public GameObject videoButtons;
+        private string youtubeLink = "";
+
+        public void SetYoutubeLink(string link)
+        {
+            youtubeLink = link;
+        }
 
         private void Awake()
         {
-            videoPlayer = GetComponent<VideoPlayer>();
+            youtubePlayer = videoPlayer.GetComponent<YoutubePlayer>();
             videoPlayer.prepareCompleted += VideoPlayerPreparedCompleted;
         }
         void VideoPlayerPreparedCompleted(VideoPlayer source)
@@ -24,53 +30,31 @@ namespace YoutubePlayer
             {
                 if(IsClient && IsServer)
                 {
-                    Debug.Log("Loading buttons");
-                    VideoControls videoControls = videoButtons.GetComponent<VideoControls>();
-
-                    videoControls.Prepare.onClick.AddListener(() =>
-                    {
-                        var link = videoControls.YoutubeLink.text;
-                        if (!string.IsNullOrEmpty(link))
-                        {
-                            Prepare(link);
-                        }
-                    });
-
-                    videoControls.Play.onClick.AddListener(() =>
-                    {
-                        PlayVideo();
-                    });
-
-                    videoControls.Reset.onClick.AddListener(() =>
-                    {
-                        ResetVideo();
-                    });
-
-                    videoControls.Pause.onClick.AddListener(() =>
-                    {
-                        PauseVideo();
-                    });
 
                     VideoPlayerClient clientScript = GetComponent<VideoPlayerClient>();
                     if(clientScript != null)
                     {
                         Destroy(clientScript);
                     }
-                    Debug.Log("Finished loading");
                 }
                 else
                 {
                     Destroy(videoButtons);
                     VideoPlayerHost hostScript = GetComponent<VideoPlayerHost>();
+                    if (hostScript)
+                    {
+                        Destroy(hostScript);
+                    }
                 }
             }
         }
-        public async void Prepare(string link = null)
+        public async void Prepare()
         {
+            Debug.Log("Video: Prepare");
             print("loading video..");
             try
             {
-                await youtubePlayer.PrepareVideoAsync(link);
+                await youtubePlayer.PrepareVideoAsync(youtubeLink);
                 print("loading complete!");
             }
             catch
@@ -80,14 +64,17 @@ namespace YoutubePlayer
         }
         public void PlayVideo()
         {
+            Debug.Log("Video: Play");
             videoPlayer.Play();
         }
         public void PauseVideo()
         {
+            Debug.Log("Video: Pause");
             videoPlayer.Pause();
         }
         public void ResetVideo()
         {
+            Debug.Log("Video: Reset");
             videoPlayer.Stop();
             videoPlayer.Play();
         }
