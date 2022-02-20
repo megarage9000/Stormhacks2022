@@ -24,8 +24,13 @@ public class HelloWorldNetworkManager : MonoBehaviour
     }
 
     
-    static void StartButtons() {
+    async void StartButtons() {
         if(GUILayout.Button("Host")) {
+
+            if(RelayManager.Instance.IsRelayEnabled)
+            {
+                await RelayManager.Instance.SetupRelay();
+            }
             if(NetworkManager.Singleton.StartHost()){
                 Debug.Log("Starting the Host...");
             }
@@ -35,7 +40,11 @@ public class HelloWorldNetworkManager : MonoBehaviour
         } 
             
         if(GUILayout.Button("Client")){
-            if(NetworkManager.Singleton.StartClient()){
+            if (RelayManager.Instance.IsRelayEnabled)
+            {
+                //await RelayManager.Instance.JoinRelay();
+            }
+            if (NetworkManager.Singleton.StartClient()){
                 Debug.Log("Starting the Client...");
             }
             else {
@@ -59,41 +68,4 @@ public class HelloWorldNetworkManager : MonoBehaviour
             NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name);
         GUILayout.Label("Mode: " + mode);
     }
-
-    // static void ExecuteServerOnly() {
-    //     if(NetworkManager.Singleton.IsServer && !NetworkManager.Singleton.IsClient) {
-    //         foreach(ulong uid in NetworkManager.Singleton.ConnectedClientsIds) {
-    //             NetworkManager
-    //                 .Singleton
-    //                 .SpawnManager
-    //                 .GetPlayerNetworkObject(uid)
-    //                 .GetComponent<FPSMoveNetwork>().Move();
-    //         }
-    //     }
-    // }
-
-    // void Update(){
-    //     if(NetworkManager.Singleton.IsServer){
-    //         ExecuteServerOnly();
-    //     }
-    // }
-
-    // static void SubmitNewPosition() {
-    //     if (GUILayout.Button(NetworkManager.Singleton.IsServer ? "Move" : "Request Position Change")) {
-    //         if(NetworkManager.Singleton.IsServer && !NetworkManager.Singleton.IsClient) {
-    //             foreach(ulong uid in NetworkManager.Singleton.ConnectedClientsIds) {
-    //                 NetworkManager
-    //                     .Singleton
-    //                     .SpawnManager
-    //                     .GetPlayerNetworkObject(uid)
-    //                     .GetComponent<HelloWorldPlayerNetworking>().Move();
-    //             }
-    //         }
-    //         else{
-    //             var playerObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
-    //             var player = playerObject.GetComponent<HelloWorldPlayerNetworking>();
-    //             player.Move();
-    //         }
-    //     }
-    // }
 }
