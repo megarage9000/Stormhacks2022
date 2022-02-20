@@ -4,23 +4,9 @@ using UnityEngine;
 using Unity.Netcode;
 using System.Threading.Tasks;
 
-public class HelloWorldNetworkManager : MonoBehaviour
+public class NetworkHelpers : Singleton<NetworkHelpers>
 {
     private string JoinCode;
-
-/*    void OnGUI() {
-        GUILayout.BeginArea(new Rect(100, 100, 300, 300));
-        if(!NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsServer) {
-            // StartButtons();
-        }
-        else {
-            StatusLabels();
-            DestroyCamera(); 
-        }
-
-        GUILayout.EndArea();
-    }*/
-
     public async Task<bool> JoinHost(string code)
     {
         if (RelayManager.Instance.IsRelayEnabled && !string.IsNullOrEmpty(code))
@@ -60,15 +46,6 @@ public class HelloWorldNetworkManager : MonoBehaviour
         }
         return false;
     }
-/*    static void StatusLabels() {
-        var mode = NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client";
-
-        GUILayout.Label("Transport: " +
-            NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name +
-            "Mode: " + (NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client") +
-            "Join Code: " + JoinCode ); 
-        GUILayout.Label("Mode: " + mode);
-    }*/
 
     public string GetServerInfo()
     {

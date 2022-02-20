@@ -23,10 +23,12 @@ public class RelayManager : Singleton<RelayManager>
 
 
     public async Task<RelayHostData> SetupRelay() {
+        Debug.Log("Starting Environment");
         InitializationOptions options = new InitializationOptions().SetEnvironmentName(environment);
 
         await UnityServices.InitializeAsync(options);
 
+        Debug.Log("Checking authentication");
         if (!AuthenticationService.Instance.IsSignedIn)
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
