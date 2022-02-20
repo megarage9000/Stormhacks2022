@@ -95,6 +95,7 @@ namespace YoutubePlayer
             print("loading video..");
             try
             {
+                Debug.Log($"Preparing link: {youtubeLink.Value}");
                 await youtubePlayer.PrepareVideoAsync(youtubeLink.Value);
                 print("loading complete!");
             }

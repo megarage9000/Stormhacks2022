@@ -9,7 +9,10 @@ public class SpawnMedia : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject obj = Instantiate(media, Vector3.zero, Quaternion.identity);
-        obj.GetComponent<NetworkObject>().Spawn();
+        if (NetworkManager.Singleton.IsHost)
+        {
+            GameObject obj = Instantiate(media, Vector3.zero, Quaternion.identity);
+            obj.GetComponent<NetworkObject>().Spawn();
+        }
     }
 }
