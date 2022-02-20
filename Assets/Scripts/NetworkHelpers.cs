@@ -12,39 +12,37 @@ public class NetworkHelpers : Singleton<NetworkHelpers>
         if (RelayManager.Instance.IsRelayEnabled && !string.IsNullOrEmpty(code))
         {
             await RelayManager.Instance.JoinRelay(code);
-            if (NetworkManager.Singleton.StartClient())
-            {
-                Debug.Log("Starting the Client...");
-                JoinCode = code;
-                return true;
-            }
-            else
-            {
-                Debug.Log("Unable to start the Client");
-                return false;
-            }
+            JoinCode = code;
         }
-        return false;
+        if (NetworkManager.Singleton.StartClient())
+        {
+            Debug.Log("Starting the Client...");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Unable to start the Client");
+            return false;
+        }
     }
 
     public async Task<bool> StartHost()
     {
         if (RelayManager.Instance.IsRelayEnabled)
         {
-            RelayHostData hostData = await RelayManager.Instance.SetupRelay();
-            JoinCode = hostData.JoinCode;
-            if (NetworkManager.Singleton.StartHost())
-            {
-                Debug.Log("Starting the Host...");
-                return true;
-            }
-            else
-            {
-                Debug.Log("Unable to start the Host");
-                return false;
-            }
+            await RelayManager.Instance.SetupRelay();
         }
-        return false;
+        if (NetworkManager.Singleton.StartHost())
+        {
+            Debug.Log("Starting the Host...");
+            JoinCode = RelayManager.Instance.JoinCode;
+            return true;
+        }
+        else
+        {
+            Debug.Log("Unable to start the Host");
+            return false;
+        }
     }
 
     public string GetServerInfo()

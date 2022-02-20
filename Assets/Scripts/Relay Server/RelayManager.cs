@@ -18,12 +18,23 @@ public class RelayManager : Singleton<RelayManager>
     public bool IsRelayEnabled => Transport != null &&
         Transport.Protocol == UnityTransport.ProtocolType.RelayUnityTransport;
 
-    public UnityTransport Transport => 
+    public UnityTransport Transport =>
         NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>();
+
+    public string JoinCode
+    {
+        get
+        {
+            return JoinCode;
+        }
+        set {
+            JoinCode = value;
+        }
+    }
 
 
     public async Task<RelayHostData> SetupRelay() {
-        Debug.Log("Starting Environment");
+        Debug.Log($"Starting Environment, with join number = {maxConnections}");
         InitializationOptions options = new InitializationOptions().SetEnvironmentName(environment);
 
         await UnityServices.InitializeAsync(options);
@@ -31,9 +42,11 @@ public class RelayManager : Singleton<RelayManager>
         Debug.Log("Checking authentication");
         if (!AuthenticationService.Instance.IsSignedIn)
         {
+            Debug.Log("Signing in Anonymously");
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
 
+        Debug.Log("Allocating");
         Allocation allocation = await Relay.Instance.CreateAllocationAsync(maxConnections);
         RelayHostData relayHostData = new RelayHostData
         {
@@ -46,7 +59,7 @@ public class RelayManager : Singleton<RelayManager>
         };
 
         relayHostData.JoinCode = await Relay.Instance.GetJoinCodeAsync(relayHostData.AllocationID);
-
+        JoinCode = relayHostData.JoinCode;
         Transport.SetRelayServerData(
             relayHostData.IPv4Address, 
             relayHostData.Port, 
@@ -59,6 +72,7 @@ public class RelayManager : Singleton<RelayManager>
 
     public async Task<RelayJoinData>JoinRelay (string joinCode)
     {
+        Debug.Log($"Joining in a relay server of ${maxConnections} with code {joinCode}");
         InitializationOptions options = new InitializationOptions().SetEnvironmentName(environment);
 
         await UnityServices.InitializeAsync(options);
