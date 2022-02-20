@@ -38,14 +38,14 @@ public class scr_MouseLock : MonoBehaviour
 
     public void PauseGame()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+ /*       Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;*/
         pauseMenu.SetActive(true);
     }
     public void ResumeGame()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+/*        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;*/
         pauseMenu.SetActive(false);
         pauseToggle = !pauseToggle;
     }
