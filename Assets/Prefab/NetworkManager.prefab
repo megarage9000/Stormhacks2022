@@ -109,4 +109,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environment: production
-  maxConnections: 6
+  maxConnections: 3

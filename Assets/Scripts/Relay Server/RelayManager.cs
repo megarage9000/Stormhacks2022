@@ -21,15 +21,19 @@ public class RelayManager : Singleton<RelayManager>
     public UnityTransport Transport =>
         NetworkManager.Singleton.gameObject.GetComponent<UnityTransport>();
 
+
+    private string _joinCode = "";
     public string JoinCode
     {
-        get
+        get => _joinCode;
+        set
         {
-            return JoinCode;
+            if(!string.IsNullOrEmpty(value))
+            {
+                _joinCode = value;
+            }
         }
-        set {
-            JoinCode = value;
-        }
+        
     }
 
 
@@ -48,6 +52,7 @@ public class RelayManager : Singleton<RelayManager>
 
         Debug.Log("Allocating");
         Allocation allocation = await Relay.Instance.CreateAllocationAsync(maxConnections);
+        Debug.Log("Finished allocating");
         RelayHostData relayHostData = new RelayHostData
         {
             Key = allocation.Key,
@@ -57,9 +62,11 @@ public class RelayManager : Singleton<RelayManager>
             IPv4Address = allocation.RelayServer.IpV4,
             ConnectionData = allocation.ConnectionData
         };
-
+        Debug.Log("Getting Join Code");
         relayHostData.JoinCode = await Relay.Instance.GetJoinCodeAsync(relayHostData.AllocationID);
+        Debug.Log($"Successfully got join code {relayHostData.JoinCode}");
         JoinCode = relayHostData.JoinCode;
+        Debug.Log("Setting Transport");
         Transport.SetRelayServerData(
             relayHostData.IPv4Address, 
             relayHostData.Port, 

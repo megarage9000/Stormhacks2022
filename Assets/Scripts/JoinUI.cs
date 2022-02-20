@@ -40,9 +40,10 @@ public class JoinUI : MonoBehaviour
 
     void ClearUIMenu()
     {
-        Destroy(JoinHostButton);
-        Destroy(StartHostButton);
-        Destroy(JoinCodeInput);
+        Debug.Log("Clearing UI");
+        JoinHostButton.gameObject.SetActive(false);
+        StartHostButton.gameObject.SetActive(false);
+        JoinCodeInput.gameObject.SetActive(false);
         Destroy(InitCamera);
     }
 
@@ -50,5 +51,10 @@ public class JoinUI : MonoBehaviour
     {
         var displayStr = manager.GetServerInfo();
         ServerInfo.text = displayStr;
+    }
+
+    private void Update()
+    {
+        DisplayServerInfo();
     }
 }

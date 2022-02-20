@@ -47,9 +47,10 @@ public class NetworkHelpers : Singleton<NetworkHelpers>
 
     public string GetServerInfo()
     {
-        return "Transport: " +
-            NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name +
-            "\nMode: " + (NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client" +
-            "\nJoin Code: " + JoinCode);
+        var mode = NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client";
+        var transport = NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name;
+        return "Transport: " + transport +
+            "\nMode: " + mode  +
+            "\nJoin Code: " + JoinCode;
     }
 }

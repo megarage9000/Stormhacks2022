@@ -686,10 +686,10 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 2
-  cloudProjectId: 8981c606-87e3-47a9-a6eb-006bd41c9b24
+  cloudProjectId: e0ec5d2d-ec39-42bb-a470-b34c65857434
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: ViewParty (2)
+  projectName: ViewParty
   organizationId: viewparty
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
