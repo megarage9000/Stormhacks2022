@@ -13,12 +13,15 @@ namespace YoutubePlayer
         YoutubePlayer youtubePlayer;
         public GameObject videoButtons;
 
-        string serverYoutubeLink = "";
-        NetworkVariable<NetworkString> youtubeLink = new NetworkVariable<NetworkString>("");
+        string serverYoutubeLink = " ";
+        NetworkVariable<NetworkString> youtubeLink = new NetworkVariable<NetworkString>(" ");
         public void SetYoutubeLink(string link)
         {
-            serverYoutubeLink = link;
-            youtubeLink.Value = link;
+            if (!string.IsNullOrEmpty(link) && IsHost)
+            {
+                serverYoutubeLink = link;
+                youtubeLink.Value = link;
+            }
         }
 
         private void Awake()
