@@ -11,7 +11,7 @@ public class SpawnMedia : MonoBehaviour
     {
         if (NetworkManager.Singleton.IsHost)
         {
-            GameObject obj = Instantiate(media, Vector3.zero, Quaternion.identity);
+            GameObject obj = Instantiate(media, new Vector3(0, 0, 10), Quaternion.identity);
             obj.GetComponent<NetworkObject>().Spawn();
         }
     }

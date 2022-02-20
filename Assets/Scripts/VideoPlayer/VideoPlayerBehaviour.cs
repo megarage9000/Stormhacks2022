@@ -27,30 +27,9 @@ namespace YoutubePlayer
         private void Awake()
         {
             youtubePlayer = videoPlayer.GetComponent<YoutubePlayer>();
-            videoPlayer.prepareCompleted += VideoPlayerPreparedCompleted;
-        }
-        void VideoPlayerPreparedCompleted(VideoPlayer source)
-        {
-            if (source.isPrepared)
+            if (!IsHost)
             {
-                if(IsClient && IsServer)
-                {
-
-                    VideoPlayerClient clientScript = GetComponent<VideoPlayerClient>();
-                    if(clientScript != null)
-                    {
-                        Destroy(clientScript);
-                    }
-                }
-                else
-                {
-                    Destroy(videoButtons);
-                    VideoPlayerHost hostScript = GetComponent<VideoPlayerHost>();
-                    if (hostScript)
-                    {
-                        Destroy(hostScript);
-                    }
-                }
+                Destroy(videoButtons);
             }
         }
 
@@ -121,12 +100,6 @@ namespace YoutubePlayer
         public void ResetVideoClientRpc()
         {
             ResetPlayer();
-        }
-
-        public override void OnDestroy()
-        {
-            base.OnDestroy();
-            videoPlayer.prepareCompleted -= VideoPlayerPreparedCompleted;
         }
     }
 }

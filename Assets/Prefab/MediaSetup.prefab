@@ -340,9 +340,21 @@ PrefabInstance:
       propertyPath: youtubePlayer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1145517045601815165, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
+      propertyPath: youtubeUrl
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1145517045601815170, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: m_Url
-      value: https://rr2---sn-uxa0n-t8ge.googlevideo.com/videoplayback?expire=1645381821&ei=XTQSYuWeJMvFkgb86K7ACQ&ip=2001%3A569%3A7df3%3A6f00%3Af1bf%3A85ce%3Aa4f%3Ac620&id=o-AOqOuvyLnqkciIcrVVSL0DCQVwTZQl6lh8K5h3dxkUL0&itag=22&source=youtube&requiressl=yes&mh=Q5&mm=31%2C26&mn=sn-uxa0n-t8ge%2Csn-vgqsrnls&ms=au%2Conr&mv=m&mvi=2&pl=44&initcwndbps=1521250&vprv=1&mime=video%2Fmp4&ns=A4ztwLgsCYfNl9oWfb2Kk2oG&cnr=14&ratebypass=yes&dur=42.562&lmt=1628301798387957&mt=1645359884&fvip=2&fexp=24001373%2C24007246&c=WEB&txp=5311224&n=Svgo34Ov_niMVJYKw&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhAKdvp0GnZsZS1Xum_3xZTwF12sbDNjVr4gFdjlbVyFkPAiBYzHkvDR3P6fRWzvS8z-fwDt6-NR8TYc6FJL-Zvhqgvw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAOA9UOclLEiwMq1WB5El6wwVxsSprdZAwFqSGUt7n4BgAiAbPBk04zTnienfMZGqPnPfHl8rVnouCBJKBg5pjHLDJA%3D%3D
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145517045601815170, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145517045601815170, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1145517046822856143, guid: 847257e5689b20148af2c1f3c7a8d168, type: 3}
       propertyPath: m_Name

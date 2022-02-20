@@ -58,7 +58,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: https://rr6---sn-uxa0n-t8gl.googlevideo.com/videoplayback?expire=1645368064&ei=oP4RYsINk4mSBpOCsagO&ip=2001%3A569%3A7f1d%3A6000%3A19c4%3Acbbc%3A7466%3A5e7f&id=o-AJoXugz3Bj9PhwWvI5toAAFly0-8thU-Cz75Y6sfoI5l&itag=18&source=youtube&requiressl=yes&mh=aT&mm=31%2C26&mn=sn-uxa0n-t8gl%2Csn-vgqsrnsr&ms=au%2Conr&mv=m&mvi=6&pl=44&gcr=ca&initcwndbps=1923750&vprv=1&mime=video%2Fmp4&ns=HWquhfIp_NTbH9NRjjnNA1oG&gir=yes&clen=17524123&ratebypass=yes&dur=197.834&lmt=1627753676424779&mt=1645345990&fvip=2&fexp=24001373%2C24007246&beids=23886208&c=WEB&txp=5530434&n=o5aNPIO373lygBvsf&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAJHzs7PjqlIqtVOtilB89_C_KbDm7tUAbH8W1xv9gXdXAiB-DTC0xjOmJXgkkR71s8C696W_LbuuTUlheq3-t5ppTw%3D%3D&sig=AOq0QJ8wRQIgZjcNBrNa8iAbu0E_fn2WzcxA3iOOcBCTTjeyWBw61dcCIQC0Tg0Sm2QQWCuz7SDPcKc0Bm45iAzOJNBjCsWWbSXcWA==
+  m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3768fe280903842fdaa2a016022624f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  youtubeUrl: https://www.youtube.com/watch?v=MzDgFsRS6UY
+  youtubeUrl: https://www.youtube.com/watch?v=NUthoQuFdvI
   is360Video: 0
 --- !u!114 &7612205580135809483
 MonoBehaviour:
